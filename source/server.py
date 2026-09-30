@@ -29,11 +29,11 @@ def buscar_dispositivo(device):
 
 
 @app.route('/dispositivo/<device>')
-def buscar_dispositivo(device):
-    for d in inventario:
-        if ["hostname"] == device:
-
-
+def buscar_dispositivos(device):
+    for equipo in inventario:
+        if equipo["hostname"] == device:
+            return equipo["status"]
+    return "No encontrado"
 
 if __name__ == "__main__":
 	app.run(debug=True, port=5015)
